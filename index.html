@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Yvan Baldera Moreno - CV Académico</title>
+    <style>
+        /* Variables CSS para consistencia */
+        :root {
+            --primary-color: #0072ce;
+            --primary-dark: #0055a5;
+            --secondary-color: #00b0da;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #555;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --max-content-width: 1200px;
+            --border-radius: 8px;
+        }
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-content-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            width: 100%;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        button {
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        /* Header y navegación */
+        header {
+            background-color: var(--secondary-color);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: var(--border-radius);
+        }
+
+        .nav-link.active, .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .language-toggle {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+        }
+
+        .language-toggle:hover {
+            background-color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Sección de perfil */
+        .profile-section {
+            text-align: center;
+            background-color: var(--light-gray);
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 5px solid var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-title {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-institution {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            white-space: pre-line;
+        }
+
+        .bio-container {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: var(--shadow);
+            text-align: justify;
+        }
+
+        .links-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .academic-link {
+            background-color: var(--white);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .academic-link:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 2rem 0;
+        }
+
+        .keyword-badge {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Sección de educación */
+        .education-section {
+            background-color: var(--white);
+        }
+
+        .education-item {
+            display: flex;
+            background-color: var(--white);
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .education-item:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .education-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .education-logo {
+            width: 300px;
+            height: 300px;
+            object-fit: contain;
+            margin-left: 1.5rem;
+            border-radius: var(--border-radius);
+        }
+
+        /* Sección de publicaciones */
+        .publications-section {
+            background-color: var(--light-gray);
+        }
+
+        .publications-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .publications-list {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .publication-item {
+            background-color: var(--white);
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .publication-year {
+            font-weight: 700;
+            color: var(--primary-color);
+            min-width: 60px;
+        }
+
+        .publication-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-authors {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-journal {
+            font-style: italic;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .collaborators-container {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .collaborator-item {
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .collaborator-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Sección de contacto */
+        .contact-section {
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .email-list {
+            margin: 1.5rem 0;
+        }
+
+        .email-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .collaboration-text {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .publications-container {
+                flex-direction: column;
+            }
+            
+            .education-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .education-logo {
+                width: 80px;
+                height: 80px;
+                margin: 1rem auto 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .bio-container {
+                padding: 1.5rem;
+            }
+            
+            .links-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .academic-link {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header con navegación -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">YBM</div>
+            
+            <button class="mobile-menu-btn">☰</button>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#inicio" class="nav-link active" data-section="inicio" data-text="nav_inicio">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#educacion" class="nav-link" data-section="educacion" data-text="nav_educacion">Educación</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#publicaciones" class="nav-link" data-section="publicaciones" data-text="nav_publicaciones">Publicaciones</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contacto" class="nav-link" data-section="contacto" data-text="nav_contacto">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <button class="language-toggle">🇺🇸 EN</button>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sección de perfil -->
+        <section id="inicio" class="profile-section">
+            <div class="container">
+                <h2 data-text="perfil_academico">Perfil Académico</h2>
+                
+                <img src="/foto_YBM.png" alt="Foto de Yvan Baldera Moreno" class="profile-image">
+                
+                <h1 class="profile-title">Dr. Yvan Baldera Moreno 🇵🇪</h1>
+                
+                <h3 class="profile-title" data-text="title">Académico Profesional Docente</h3>
+                
+                <p class="profile-institution" data-text="institution">Departamento de Ciencias Pre-Clínicas,
+ Facultad de Medicina,
+ Universidad Católica del Maule</p>
+                
+                <div class="bio-container">
+                    <h3 data-text="bio">Biografía:</h3>
+                    <p data-text="biografia">Soy Doctor en Modelamiento Matemático Aplicado por la Universidad Católica del Maule, con formación complementaria en Magíster en Matemática Aplicada por la Universidad del Bío-Bío. Mi trayectoria se centra en la formulación y análisis de modelos matemáticos aplicados a procesos biológicos complejos, especialmente la biodegradación de bioplásticos y el modelamiento de sistemas dinámicos en ecología.
+
+Durante mi doctorado, desarrollé modelos de crecimiento microbiano y cinética de degradación de polímeros, integrando herramientas computacionales para optimizar procesos de compostaje, experiencia que se extiende al diseño y validación de procesos biotecnológicos. Mi participación en proyectos Fondecyt, tanto como tesista como personal técnico, me ha permitido adquirir competencias avanzadas en programación científica, análisis numérico y modelamiento de redes de reacción.
+
+Mi formación en Matemáticas y mi experiencia docente en distintos niveles fortalecen mi capacidad para comunicar conceptos complejos y colaborar interdisciplinariamente. Además, he contribuido como revisor en revistas internacionales, consolidando mi visión crítica de la investigación.
+
+En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplicada, lo que me permite aportar eficazmente a proyectos colaborativos de investigación en biotecnología y modelamiento matemático de sistemas complejos.</p>
+                </div>
+                
+                <h3 data-text="enlaces_academicos">🌐 Enlaces Académicos</h3>
+                <div class="links-container">
+                    <a href="https://orcid.org/0000-0001-6029-5806" class="academic-link" target="_blank">🔗 ORCID</a>
+                    <a href="https://scholar.google.com/citations?user=nsXyT_cAAAAJ&hl=es&oi=ao" class="academic-link" target="_blank">🔗 Google Scholar</a>
+                    <a href="https://www.researchgate.net/profile/Yvan-Baldera-Moreno-3" class="academic-link" target="_blank">🔗 ResearchGate</a>
+                    <a href="https://www.linkedin.com/in/yvan-baldera-moreno-778084a9/" class="academic-link" target="_blank">🔗 LinkedIn</a>
+                    <a href="https://github.com/Yvan-BM-Git" class="academic-link" target="_blank">🔗 GitHub</a>
+                </div>
+                
+                <h3 data-text="areas_investigacion">📚 Áreas de Investigación</h3>
+                <div class="keywords-container">
+                    <span class="keyword-badge" data-keyword="0">Modelamiento matemático</span>
+                    <span class="keyword-badge" data-keyword="1">Biodegradación de plásticos</span>
+                    <span class="keyword-badge" data-keyword="2">Ácido poliláctico (PLA)</span>
+                    <span class="keyword-badge" data-keyword="3">Proceso de compostaje</span>
+                    <span class="keyword-badge" data-keyword="4">Sistemas EDO no autónomos</span>
+                    <span class="keyword-badge" data-keyword="5">Redes de reacción</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de educación -->
+        <section id="educacion" class="education-section">
+            <div class="container">
+                <h2 data-text="formacion_academica">Formación Académica</h2>
+                
+                <div class="education-item">
+                    <div class="education-content">
+                        <h3 data-degree="0">Doctor en Modelamiento Matemático Aplicado</h3>
+                        <p>Universidad Católica del Maule</p>
+                        <p>Talca, Chile</p>
+                        <p>2024</p>
+                        <a href="https://www.dm2a.org" target="_blank" data-text="mas_informacion">Más información</a>
+                    </div>
+                    <img src="/logos/ucm.png" alt="Logo Universidad Católica del Maule" class="education-logo">
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-content">
+                        <h3 data-degree="1">Magister con mención en Matemática Aplicada</h3>
+                        <p>Universidad del Bío-Bío</p>
+                        <p>Concepción, Chile</p>
+                        <p>2020</p>
+                        <a href="https://mmatematica.ubiobio.cl" target="_blank" data-text="mas_informacion">Más información</a>
+                    </div>
+                    <img src="/logos/ubb.jpg" alt="Logo Universidad del Bío-Bío" class="education-logo">
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-content">
+                        <h3 data-degree="2">Bachiller en Matemáticas</h3>
+                        <p>Universidad Nacional Pedro Ruíz Gallo</p>
+                        <p>Lambayeque, Perú</p>
+                        <p>2014</p>
+                        <a href="https://facfym.unprg.edu.pe/escuelas-profesionales/matemáticas" target="_blank" data-text="mas_informacion">Más información</a>
+                    </div>
+                    <img src="/logos/unprg.png" alt="Logo Universidad Nacional Pedro Ruíz Gallo" class="education-logo">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de publicaciones -->
+        <section id="publicaciones" class="publications-section">
+            <div class="container">
+                <h2 data-text="publicaciones_cientificas">Publicaciones Científicas</h2>
+                
+                <div class="publications-container">
+                    <div class="publications-list">
+                        <div class="publication-item">
+                            <div class="publication-year">2025</div>
+                            <div class="publication-title">New insights on poly (cis-1, 4-isoprene) rubber degradation through enzymatic kinetics and process improvement</div>
+                            <div class="publication-authors">Guajardo-Flores, C., Rojas, J., Baldera-Moreno, Y., Adasme-Carreño, F., Kasai, D., & Andler, R.</div>
+                            <div class="publication-journal">Frontiers in Bioengineering and Biotechnology, 13, 1593339</div>
+                            <a href="https://doi.org/10.3389/fbioe.2025.1593339" target="_blank">DOI: 10.3389/fbioe.2025.1593339</a>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="publication-year">2024</div>
+                            <div class="publication-title">Effects of turning aeration and the initial carbon/nitrogen ratio on the biodegradation of polylactic acid under controlled conditions</div>
+                            <div class="publication-authors">Baldera-Moreno, Y., Hernández, C., Vargas, A., Rojas-Palma, A., Morales-Vera, R., & Andler, R.</div>
+                            <div class="publication-journal">International Journal of Biological Macromolecules, 131689</div>
+                            <a href="https://doi.org/10.1016/j.ijbiomac.2024.131689" target="_blank">DOI: 10.1016/j.ijbiomac.2024.131689</a>
+                        </div> 
+
+                        <div class="publication-item">
+                            <div class="publication-year">2023</div>
+                            <div class="publication-title">Stability and bifurcation in the circular restricted (N+ 2)-body problem in the sphere S2 with logarithmic potential</div>
+                            <div class="publication-authors">Andrade, J., Baldera-Moreno, Y., & Boatto, S.</div>
+                            <div class="publication-journal">Discrete & Continuous Dynamical Systems-Series B, 28(6)</div>
+                            <a href="https://doi.org/10.3934/dcdsb.2022231" target="_blank">DOI: 10.3934/dcdsb.2022231</a>
+                        </div>
+
+                        <div class="publication-item">
+                            <div class="publication-year">2023</div>
+                            <div class="publication-title">Mathematical model of polylactic acid biodegradation under controlled composting conditions</div>
+                            <div class="publication-authors">Baldera-Moreno, Y., Rojas-Palma, A., Andler, R., & Cuesta-Herrera, L.</div>
+                            <div class="publication-journal">Journal of Physics: Conference Series, Vol. 2515, No. 1, p. 012004</div>
+                            <a href="https://doi.org/10.1088/1742-6596/2515/1/012004" target="_blank">DOI: 10.1088/1742-6596/2515/1/012004</a>
+                        </div>
+
+                        <div class="publication-item">
+                            <div class="publication-year">2023</div>
+                            <div class="publication-title">Estimation of the optimal number of neurons in extreme learning machine using simulated annealing and the golden section</div>
+                            <div class="publication-authors">Gelvez-Almeida, E., Mora, M., Huérfano-Maldonado, Y., Salazar-Jurado, E., Martínez-Jeraldo, N., Lozada-Yavina, R., & Tobar, L.</div>
+                            <div class="publication-journal">Journal of Physics: Conference Series, Vol. 2515, No. 1, p. 012003</div>
+                            <a href="https://doi.org/10.1088/1742-6596/2515/1/012003" target="_blank">DOI: 10.1088/1742-6596/2515/1/012003</a>
+                        </div>
+
+                        <div class="publication-item">
+                            <div class="publication-year">2023</div>
+                            <div class="publication-title">A mathematical model and simulation scenarios for T and B cells immune response to severe acute respiratory syndrome-coronavirus-2</div>
+                            <div class="publication-authors">Cuesta-Herrera, L., Córdova-Lepe, F., Pastenes, L., Arencibia, A. D., Baldera-Moreno, Y., & Torres-Mantilla, H. A.</div>
+                            <div class="publication-journal">Journal of Physics: Conference Series, Vol. 2516, No. 1, p. 012007</div>
+                            <a href="https://doi.org/10.1088/1742-6596/2516/1/012007" target="_blank">DOI: 10.1088/1742-6596/2516/1/012007</a>
+                        </div>
+
+                        <div class="publication-item">
+                            <div class="publication-year">2022</div>
+                            <div class="publication-title">Biotechnological aspects and mathematical modeling of the biodegradation of plastics under controlled conditions</div>
+                            <div class="publication-authors">Baldera-Moreno, Y., Pino, V., Farres, A., Banerjee, A., Gordillo, F., & Andler, R.</div>
+                            <div class="publication-journal">Polymers, 14(3), 375</div>
+                            <a href="https://doi.org/10.3390/polym14030375" target="_blank">DOI: 10.3390/polym14030375</a>
+                        </div>
+
+                        <div class="publication-item">
+                            <div class="publication-year">2020</div>
+                            <div class="publication-title">Parallel methods for linear systems solution in extreme learning machines: an overview</div>
+                            <div class="publication-authors">Gelvez-Almeida, E., Baldera-Moreno, Y., Huérfano, Y., Vera, M., Mora, M., & Barrientos, R.</div>
+                            <div class="publication-journal">Journal of Physics: Conference Series, Vol. 1702, No. 1, p. 012017</div>
+                            <a href="https://doi.org/10.1088/1742-6596/1702/1/012017" target="_blank">DOI: 10.1088/1742-6596/1702/1/012017</a>
+                        </div>
+                        
+                        <!-- Más publicaciones aquí -->
+                    </div>
+                    
+                    <div class="collaborators-container">
+                        <h3 data-text="colaboradores">Colaboradores:</h3> 
+                        <div class="collaborator-item">Andler, Rodrigo</div>
+                        <div class="collaborator-item">Rojas-Palma, Alejandro</div>
+                        <div class="collaborator-item">Cuesta-Herrera, Ledyz</div>
+                        <div class="collaborator-item">Lozada-Yavina, Rafael</div>
+                        <div class="collaborator-item">Gelvez-Almeida, Elkin</div>
+                        <div class="collaborator-item">Guajardo-Flores, Camila</div>
+                        <div class="collaborator-item">Rojas, Josefa</div>
+                        <div class="collaborator-item">Hernández, Camila</div>
+                        <div class="collaborator-item">Vargas, Aris</div>
+                        <div class="collaborator-item">Morales-Vera, Rodrigo</div>
+                        <div class="collaborator-item">Adasme-Carreño, Francisco</div>
+                        <div class="collaborator-item">Kasai, Daisuke</div>
+                        <div class="collaborator-item">Córdova-Lepe, Fernando</div>
+                        <div class="collaborator-item">Pastenes, Luis</div>
+                        <div class="collaborator-item">Arencibia, Ariel D.</div>
+                        <div class="collaborator-item">Mora Cofre, Marco</div>
+                        <div class="collaborator-item">Huérfano-Maldonado, Yoleidy</div>
+                        <div class="collaborator-item">Salazar-Jurado, Edwin</div>
+                        <div class="collaborator-item">Martínez-Jeraldo, Nicole</div>
+                        <div class="collaborator-item">Tobar, Luis</div>
+                        <div class="collaborator-item">Vera, Miguel</div>
+                        <div class="collaborator-item">Barrientos, Ricardo</div>
+                        <div class="collaborator-item">Pino, Valentina</div>
+                        <div class="collaborator-item">Farres, Amelia</div>
+                        <div class="collaborator-item">Banerjee, Aparna</div>
+                        <div class="collaborator-item">Gordillo, Felipe</div>
+                        <div class="collaborator-item">Andrade Bustos, Jaime</div>
+                        <div class="collaborator-item">Boatto, Stefanella</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de contacto -->
+        <section id="contacto" class="contact-section">
+            <div class="container">
+                <h2 data-text="contacto">Contacto</h2>
+                
+                <div class="contact-container">
+                    <h3 data-text="correos_electronicos">📧 Correos electrónicos:</h3>
+                    <div class="email-list">
+                        <div class="email-item">
+                            <a href="mailto:ybalderam@gmail.com">ybalderam@gmail.com</a>
+                        </div>
+                        <div class="email-item">
+                            <a href="mailto:ybaldera@ucm.cl">ybaldera@ucm.cl</a>
+                        </div>
+                    </div>
+                    
+                    <h3 data-text="enlaces_academicos_contacto">🌐 Enlaces Académicos</h3>
+                    <div class="links-container">
+                        <a href="https://orcid.org/0000-0001-6029-5806" class="academic-link" target="_blank">🔗 ORCID</a>
+                        <a href="https://scholar.google.com/citations?user=nsXyT_cAAAAJ&hl=es&oi=ao" class="academic-link" target="_blank">🔗 Google Scholar</a>
+                        <a href="https://www.researchgate.net/profile/Yvan-Baldera-Moreno-3" class="academic-link" target="_blank">🔗 ResearchGate</a>
+                        <a href="https://www.linkedin.com/in/yvan-baldera-moreno-778084a9/" class="academic-link" target="_blank">🔗 LinkedIn</a>
+                        <a href="https://github.com/Yvan-BM-Git" class="academic-link" target="_blank">🔗 GitHub</a>
+                    </div>
+                    
+                    <div class="collaboration-text">
+                        <p data-text="colaboracion_texto">Estoy disponible para colaboraciones de investigación y supervisión de estudiantes en las áreas de modelamiento matemático aplicado y biodegradación de plásticos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p data-text="footer_texto">© 2025 Yvan Omar Baldera Moreno - CV Académico</p>
+        </div>
+    </footer>
+
+    <script>
+        // Datos para la funcionalidad de cambio de idioma
+        const TEXTS = {
+            "es": {
+                "nav_inicio": "Inicio",
+                "nav_educacion": "Educación", 
+                "nav_publicaciones": "Publicaciones",
+                "nav_contacto": "Contacto",
+                "perfil_academico": "Perfil Académico",
+                "bio": "Biografía:",
+                "biografia": "Soy Doctor en Modelamiento Matemático Aplicado por la Universidad Católica del Maule, con formación complementaria en Magíster en Matemática Aplicada por la Universidad del Bío-Bío. Mi trayectoria se centra en la formulación y análisis de modelos matemáticos aplicados a procesos biológicos complejos, especialmente la biodegradación de bioplásticos y el modelamiento de sistemas dinámicos en ecología.\n\nDurante mi doctorado, desarrollé modelos de crecimiento microbiano y cinética de degradación de polímeros, integrando herramientas computacionales para optimizar procesos de compostaje, experiencia que se extiende al diseño y validación de procesos biotecnológicos. Mi participación en proyectos Fondecyt, tanto como tesista como personal técnico, me ha permitido adquirir competencias avanzadas en programación científica, análisis numérico y modelamiento de redes de reacción.\n\nMi formación en Matemáticas y mi experiencia docente en distintos niveles fortalecen mi capacidad para comunicar conceptos complejos y colaborar interdisciplinariamente. Además, he contribuido como revisor en revistas internacionales, consolidando mi visión crítica de la investigación.\n\nEn conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplicada, lo que me permite aportar eficazmente a proyectos colaborativos de investigación en biotecnología y modelamiento matemático de sistemas complejos.",
+                "enlaces_academicos": "🌐 Enlaces Académicos",
+                "areas_investigacion": "📚 Áreas de Investigación",
+                "formacion_academica": "Formación Académica",
+                "mas_informacion": "Más información",
+                "publicaciones_cientificas": "Publicaciones Científicas",
+                "colaboradores": "Colaboradores:",
+                "contacto": "Contacto",
+                "correos_electronicos": "📧 Correos electrónicos:",
+                "enlaces_academicos_contacto": "🌐 Enlaces Académicos",
+                "colaboracion_texto": "Estoy disponible para colaboraciones de investigación y supervisión de estudiantes en las áreas de modelamiento matemático aplicado y biodegradación de plásticos.",
+                "footer_texto": "© 2025 Yvan Baldera Moreno - CV Académico",
+                "title": "Académico Profesional Docente",
+                "institution": "Departamento de Ciencias Pre-Clínicas,\n Facultad de Medicina,\n Universidad Católica del Maule"
+            },
+            "en": {
+                "nav_inicio": "Home",
+                "nav_educacion": "Education",
+                "nav_publicaciones": "Publications", 
+                "nav_contacto": "Contact",
+                "perfil_academico": "Academic Profile",
+                "bio": "Biography:",
+                "biografia": "I hold a PhD in Applied Mathematical Modeling from Universidad Católica del Maule, with complementary training as Master in Applied Mathematics from Universidad del Bío-Bío. My trajectory focuses on the formulation and analysis of mathematical models applied to complex biological processes, especially bioplastic biodegradation and dynamic systems modeling in ecology.\n\nDuring my doctorate, I developed microbial growth models and polymer degradation kinetics, integrating computational tools to optimize composting processes, an experience that extends to the design and validation of biotechnological processes. My participation in Fondecyt projects, both as a thesis student and technical personnel, has allowed me to acquire advanced skills in scientific programming, numerical analysis, and reaction network modeling.\n\nMy background in Mathematics and my teaching experience at different levels strengthen my ability to communicate complex concepts and collaborate interdisciplinarily. Additionally, I have contributed as a reviewer in international journals, consolidating my critical research vision.\n\nOverall, my profile combines analytical rigor, creativity, and applied experience, which allows me to contribute effectively to collaborative research projects in biotechnology and mathematical modeling of complex systems.",
+                "enlaces_academicos": "🌐 Academic Links",
+                "areas_investigacion": "📚 Research Areas",
+                "formacion_academica": "Academic Formation",
+                "mas_informacion": "More information",
+                "publicaciones_cientificas": "Scientific Publications",
+                "colaboradores": "Collaborators:",
+                "contacto": "Contact",
+                "correos_electronicos": "📧 Email addresses:",
+                "enlaces_academicos_contacto": "🌐 Academic Links",
+                "colaboracion_texto": "I am available for research collaborations and student supervision in the areas of applied mathematical modeling and plastic biodegradation.",
+                "footer_texto": "© 2025 Yvan Baldera Moreno - Academic CV",
+                "title": "Professional Academic Teacher",
+                "institution": "Department of Pre-Clinical Sciences,\n Faculty of Medicine,\n Catholic University of Maule"
+            }
+        };
+
+        const EDUCATION_TEXTS = {
+            "es": [
+                "Doctor en Modelamiento Matemático Aplicado",
+                "Magister con mención en Matemática Aplicada",
+                "Bachiller en Matemáticas"
+            ],
+            "en": [
+                "PhD in Applied Mathematical Modeling",
+                "Master's Degree in Applied Mathematics",
+                "Bachelor's Degree in Mathematics"
+            ]
+        };
+
+        const KEYWORDS = [
+            {"es": "Modelamiento matemático", "en": "Mathematical modeling"},
+            {"es": "Biodegradación de plásticos", "en": "Plastics biodegradation"},
+            {"es": "Ácido poliláctico (PLA)", "en": "Polylactic acid (PLA)"},
+            {"es": "Proceso de compostaje", "en": "Composting process"},
+            {"es": "Sistemas EDO no autónomos", "en": "Non-autonomous EDO systems"},
+            {"es": "Redes de reacción", "en": "Reaction Networks"}
+        ];
+
+        // Estado de la aplicación
+        let currentLanguage = 'es';
+
+        // Función para cambiar de idioma
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+            updateAllTexts();
+            updateLanguageButton();
+        }
+
+        // Función para actualizar todos los textos según el idioma
+        function updateAllTexts() {
+            // Actualizar textos con data-text
+            document.querySelectorAll('[data-text]').forEach(element => {
+                const key = element.getAttribute('data-text');
+                if (TEXTS[currentLanguage][key]) {
+                    element.textContent = TEXTS[currentLanguage][key];
+                }
+            });
+
+            // Actualizar títulos de educación
+            document.querySelectorAll('[data-degree]').forEach(element => {
+                const degreeIndex = parseInt(element.getAttribute('data-degree'));
+                if (EDUCATION_TEXTS[currentLanguage][degreeIndex]) {
+                    element.textContent = EDUCATION_TEXTS[currentLanguage][degreeIndex];
+                }
+            });
+
+            // Actualizar palabras clave
+            document.querySelectorAll('[data-keyword]').forEach(element => {
+                const keywordIndex = parseInt(element.getAttribute('data-keyword'));
+                if (KEYWORDS[keywordIndex] && KEYWORDS[keywordIndex][currentLanguage]) {
+                    element.textContent = KEYWORDS[keywordIndex][currentLanguage];
+                }
+            });
+
+            // Actualizar título e institución del perfil (elementos específicos)
+            const profileTitle = document.querySelector('[data-text="title"]');
+            if (profileTitle && TEXTS[currentLanguage]['title']) {
+                profileTitle.textContent = TEXTS[currentLanguage]['title'];
+            }
+
+            const institutionElement = document.querySelector('[data-text="institution"]');
+            if (institutionElement && TEXTS[currentLanguage]['institution']) {
+                institutionElement.textContent = TEXTS[currentLanguage]['institution'];
+            }
+        }
+
+        // Función para actualizar el botón de idioma
+        function updateLanguageButton() {
+            const languageButton = document.querySelector('.language-toggle');
+            if (languageButton) {
+                languageButton.textContent = currentLanguage === 'es' ? '🇺🇸 EN' : '🇪🇸 ES';
+            }
+        }
+
+        // Función para cambiar de sección
+        function changeSection(sectionId) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Mostrar la sección actual
+            document.getElementById(sectionId).style.display = 'block';
+            
+            // Actualizar navegación
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            document.querySelector(`.nav-link[data-section="${sectionId}"]`).classList.add('active');
+            
+            // Scroll suave hacia la sección
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Inicializar la aplicación
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configurar navegación
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    changeSection(this.getAttribute('data-section'));
+                });
+            });
+            
+            // Configurar botón de idioma
+            document.querySelector('.language-toggle').addEventListener('click', toggleLanguage);
+            
+            // Configurar menú móvil
+            document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+                document.querySelector('.nav-menu').classList.toggle('active');
+            });
+            
+            // Inicializar textos
+            updateAllTexts();
+            
+            // Mostrar solo la sección actual (inicio)
+            document.querySelectorAll('section').forEach(section => {
+                if (section.id !== 'inicio') {
+                    section.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
