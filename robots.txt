@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yvanbalderamoreno.netlify.app/sitemap.xml
