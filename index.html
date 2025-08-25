@@ -885,61 +885,6 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
             document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Función para contar publicaciones por colaborador
-        function countPublicationsByCollaborator() {
-            const publicationItems = document.querySelectorAll('.publication-item');
-            const collaboratorCounts = {};
-            
-            publicationItems.forEach(publication => {
-                const authorsElement = publication.querySelector('.publication-authors');
-                if (authorsElement) {
-                    const authorsText = authorsElement.textContent;
-                    // Limpiar y separar los autores
-                    const authors = authorsText.split(',')
-                        .map(author => author.trim())
-                        .filter(author => author.length > 0);
-                    
-                    // Contar cada autor
-                    authors.forEach(author => {
-                        // Normalizar el nombre (sin puntos, etc.)
-                        const normalizedName = author.replace(/\./g, '').trim();
-                        collaboratorCounts[normalizedName] = (collaboratorCounts[normalizedName] || 0) + 1;
-                    });
-                }
-            });
-            
-            return collaboratorCounts;
-        }
-
-        // Función para actualizar la lista de colaboradores con los conteos
-        function updateCollaboratorsList() {
-            const counts = countPublicationsByCollaborator();
-            const collaboratorItems = document.querySelectorAll('.collaborator-item');
-            
-            // Crear un mapeo de nombres normalizados
-            const normalizedCounts = {};
-            Object.keys(counts).forEach(name => {
-                const normalized = name.toLowerCase()
-                    .replace(/\./g, '')
-                    .replace(/\s+/g, ' ')
-                    .trim();
-                normalizedCounts[normalized] = counts[name];
-            });
-            
-            collaboratorItems.forEach(item => {
-                const originalName = item.textContent.trim();
-                const normalizedName = originalName.toLowerCase()
-                    .replace(/\./g, '')
-                    .replace(/\s+/g, ' ')
-                    .trim();
-                
-                const count = normalizedCounts[normalizedName] || 0;
-                if (count > 0) {
-                    item.textContent = `${originalName} (${count})`;
-                }
-            });
-        }
-
         // Inicializar la aplicación
         document.addEventListener('DOMContentLoaded', function() {
             // Configurar navegación
