@@ -997,10 +997,19 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
 
 
         <!-- ── PASO 4: JS — pegar antes del cierre </script> ── -->
+        <!-- ============================================================
+            Reemplaza SOLO el bloque <script id="COPIAR_EN_SCRIPT">
+            con este nuevo código (incluye teclado + swipe táctil)
+            ============================================================ -->
+
         <script id="COPIAR_EN_SCRIPT">
-            // Recopila todas las figuras de la galería en orden
             var galleryFigures = Array.from(document.querySelectorAll('.gallery-grid figure'));
             var currentIndex = 0;
+
+            // Variables para detectar el swipe
+            var touchStartX = 0;
+            var touchEndX   = 0;
+            var SWIPE_THRESHOLD = 50; // píxeles mínimos para considerar swipe
 
             function openLightbox(index) {
                 var fig = galleryFigures[index];
@@ -1020,6 +1029,14 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                 return document.getElementById('lightbox').classList.contains('open');
             }
 
+            function showNext() {
+                openLightbox((currentIndex + 1) % galleryFigures.length);
+            }
+
+            function showPrev() {
+                openLightbox((currentIndex - 1 + galleryFigures.length) % galleryFigures.length);
+            }
+
             // Abrir al hacer clic en cualquier figura
             galleryFigures.forEach(function(fig, i) {
                 fig.addEventListener('click', function() {
@@ -1035,19 +1052,34 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                 if (e.target === this) closeLightbox();
             });
 
-            // Teclado: flechas + Escape
+            // ── Teclado: flechas + Escape ──
             document.addEventListener('keydown', function(e) {
                 if (!isOpen()) return;
-
-                if (e.key === 'Escape') {
-                    closeLightbox();
-                } else if (e.key === 'ArrowRight') {
-                    openLightbox((currentIndex + 1) % galleryFigures.length);
-                } else if (e.key === 'ArrowLeft') {
-                    openLightbox((currentIndex - 1 + galleryFigures.length) % galleryFigures.length);
-                }
+                if      (e.key === 'Escape')     closeLightbox();
+                else if (e.key === 'ArrowRight') showNext();
+                else if (e.key === 'ArrowLeft')  showPrev();
             });
-        </script>
+
+            // ── Swipe táctil ──
+            var lightboxEl = document.getElementById('lightbox');
+
+            lightboxEl.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            lightboxEl.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                var diff = touchStartX - touchEndX;
+
+                if (Math.abs(diff) < SWIPE_THRESHOLD) return; // movimiento muy corto, ignorar
+
+                if (diff > 0) {
+                    showNext(); // deslizó hacia la izquierda → imagen siguiente
+                } else {
+                    showPrev(); // deslizó hacia la derecha → imagen anterior
+                }
+            }, { passive: true });
+        </script>         
 
         <!-- ================= NOTICIAS ================= -->
         <section id="noticias" class="news-section">
