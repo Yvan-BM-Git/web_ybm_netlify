@@ -715,7 +715,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
             ============================================================ -->
 
 
-        <!-- ── PASO 1: CSS ── pegar dentro del <style> existente -->
+        <!-- ── PASO 1: CSS ── pegar dentro del <style> existente -->            
         <style id="COPIAR_EN_STYLE">
 
             .gallery-section {
@@ -998,26 +998,54 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
 
         <!-- ── PASO 4: JS — pegar antes del cierre </script> ── -->
         <script id="COPIAR_EN_SCRIPT">
-            document.querySelectorAll('.gallery-grid figure').forEach(function(fig) {
+            // Recopila todas las figuras de la galería en orden
+            var galleryFigures = Array.from(document.querySelectorAll('.gallery-grid figure'));
+            var currentIndex = 0;
+
+            function openLightbox(index) {
+                var fig = galleryFigures[index];
+                var img = fig.querySelector('img');
+                var cap = fig.querySelector('figcaption');
+                document.getElementById('lightbox-img').src = img.src;
+                document.getElementById('lightbox-caption').textContent = cap ? cap.textContent : '';
+                document.getElementById('lightbox').classList.add('open');
+                currentIndex = index;
+            }
+
+            function closeLightbox() {
+                document.getElementById('lightbox').classList.remove('open');
+            }
+
+            function isOpen() {
+                return document.getElementById('lightbox').classList.contains('open');
+            }
+
+            // Abrir al hacer clic en cualquier figura
+            galleryFigures.forEach(function(fig, i) {
                 fig.addEventListener('click', function() {
-                    var img = this.querySelector('img');
-                    var cap = this.querySelector('figcaption');
-                    document.getElementById('lightbox-img').src = img.src;
-                    document.getElementById('lightbox-caption').textContent = cap ? cap.textContent : '';
-                    document.getElementById('lightbox').classList.add('open');
+                    openLightbox(i);
                 });
             });
 
-            document.getElementById('lightbox-close').addEventListener('click', function() {
-                document.getElementById('lightbox').classList.remove('open');
-            });
+            // Cerrar con botón ✕
+            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
 
+            // Cerrar al hacer clic fuera de la imagen
             document.getElementById('lightbox').addEventListener('click', function(e) {
-                if (e.target === this) this.classList.remove('open');
+                if (e.target === this) closeLightbox();
             });
 
+            // Teclado: flechas + Escape
             document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+                if (!isOpen()) return;
+
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowRight') {
+                    openLightbox((currentIndex + 1) % galleryFigures.length);
+                } else if (e.key === 'ArrowLeft') {
+                    openLightbox((currentIndex - 1 + galleryFigures.length) % galleryFigures.length);
+                }
             });
         </script>
 
