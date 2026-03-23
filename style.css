@@ -24,3 +24,7 @@ button {
 button:hover {
     background-color: #36648b;
 }
+
+.gallery-grid img {
+    width: 300px;
+}
