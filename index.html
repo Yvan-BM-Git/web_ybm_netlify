@@ -1082,29 +1082,398 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
         </script>         
 
         <!-- ================= NOTICIAS ================= -->
+        <!-- ============================================================
+            Reemplaza tu <section id="noticias"> completa con esta
+            ============================================================ -->
+
+        <!-- CSS — pegar dentro del <style> existente -->
+        <style id="COPIAR_EN_STYLE_NOTICIAS">
+
+            .news-section {
+                background-color: var(--white);
+            }
+
+            .news-section .year-group {
+                margin-bottom: 2rem;
+            }
+
+            .news-section .year-heading {
+                font-size: 1.1rem;
+                font-weight: 800;
+                color: var(--primary-color);
+                border-left: 5px solid var(--secondary-color);
+                padding-left: 1rem;
+                margin-bottom: 1rem;
+                margin-top: 2rem;
+                border-radius: 0;
+            }
+
+            .news-section .year-heading:first-of-type {
+                margin-top: 0;
+            }
+
+            .news-cards-list {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .news-preview-card {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                background-color: var(--white);
+                border: 1px solid var(--medium-gray);
+                border-radius: var(--border-radius);
+                padding: 12px 16px;
+                text-decoration: none;
+                color: var(--text-color);
+                transition: var(--transition);
+                cursor: pointer;
+            }
+
+            .news-preview-card:hover {
+                border-color: var(--primary-color);
+                box-shadow: var(--shadow);
+                background-color: var(--light-gray);
+                color: var(--text-color);
+            }
+
+            .news-preview-thumb {
+                width: 44px;
+                height: 44px;
+                border-radius: 8px;
+                background-color: var(--light-gray);
+                border: 1px solid var(--medium-gray);
+                flex-shrink: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                position: relative;
+                font-size: 10px;
+                font-weight: 600;
+                color: var(--dark-gray);
+            }
+
+            .news-preview-thumb img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                inset: 0;
+                display: none;
+            }
+
+            .news-preview-thumb img.loaded {
+                display: block;
+            }
+
+            .news-preview-body {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .news-preview-title {
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: var(--text-color);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin-bottom: 2px;
+            }
+
+            .news-preview-domain {
+                font-size: 0.78rem;
+                color: var(--dark-gray);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .news-preview-arrow {
+                font-size: 1rem;
+                color: var(--dark-gray);
+                flex-shrink: 0;
+            }
+
+        </style>
+
+
+        <!-- HTML de la sección -->
         <section id="noticias" class="news-section">
             <div class="container">
-                <h2>Noticias</h2>
+                <h2 data-text="noticias">Noticias</h2>
 
-                <h3>2026</h3>
-                <ul>
-                    <li><a href="#">Publicación en revista X</a></li>
-                </ul>
+                <!-- 2026 -->
+                <div class="year-group">
+                    <h3 class="news-section year-heading">2026</h3>
+                    <div class="news-cards-list">
+                        <a class="news-preview-card" href="https://danei.utem.cl/tomas-veloz-gonzalez-docente-depto-matematica-utem-al-internacionalizarnos-se-generan-mas-oportunidades-para-proyectos-de-investigacion/" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=danei.utem.cl&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>UTM</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">Visita al Centre Leo Apostel</div>
+                                <div class="news-preview-domain">danei.utem.cl</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
 
-                <h3>2025</h3>
-                <ul>
-                    <li><a href="#">Proyecto Fondecyt aprobado</a></li>
-                </ul>
+                        <a class="news-preview-card" href="https://www.linkedin.com/posts/facultad-ciencias-utem_ecological-sustainability-matemaertico-activity-7439688794158702592-qUVL/" target="_blank">
+                            <div class="news-preview-thumb" style="background-color:#0077B5;">
+                                <svg width="22" height="22" viewBox="0 0 24 24"><text x="3" y="18" font-size="16" font-weight="bold" fill="white">in</text></svg>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">IWESM26 - UTEM</div>
+                                <div class="news-preview-domain">linkedin.com</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
 
-                <h3>2024</h3>
-                <ul></ul>
+                        <a class="news-preview-card" href="https://www.ucm.cl/noticias/ucm-reafirma-lazos-academicos-con-la-2-interdisciplinary-workshop-on-ecological-and-sustainability-modeling-2026/" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=ucm.cl&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>UCM</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">IWESM26 - UCM</div>
+                                <div class="news-preview-domain">ucm.cl</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
 
-                <h3>2023</h3>
-                <ul>
-                    <li><a href="https://www.ucm.cl/noticias/estudiante-ucm-expuso-ix-congreso-internacional-jornadas-matematica-aplicada-realizado-colombia/">IX Congreso Internacional Jornadas de Matemática Aplicada (Colombia)</a></li>
-                </ul>
+                        <a class="news-preview-card" href="https://clea.research.vub.be/2nd-workshop-on-interdisciplinary-modeling-of-sustainable-processes" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=clea.research.vub.be&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>VUB</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">2nd Workshop on Interdisciplinary Modeling of Sustainable Processes</div>
+                                <div class="news-preview-domain">clea.research.vub.be</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+
+                        <a class="news-preview-card" href="https://borders.shinyapps.io/BariDataWeb/" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=shinyapps.io&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>APP</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">WebApp BariData Maule</div>
+                                <div class="news-preview-domain">borders.shinyapps.io</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2025 -->
+                <div class="year-group">
+                    <h3 class="news-section year-heading">2025</h3>
+                    <div class="news-cards-list">
+                        <a class="news-preview-card" href="https://www.ucm.cl/noticias/segunda-escuela-modelizacion-matematica-del-maule-ciencia-aplicada-desde-la-ucm/" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=ucm.cl&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>UCM</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">2° Escuela de Modelización Matemática del Maule</div>
+                                <div class="news-preview-domain">ucm.cl</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+
+                        <a class="news-preview-card" href="https://www.ucm.cl/noticias/facultad-de-medicina-ucm-celebro-con-exito-la-ii-jornada-del-dia-de-la-investigacion-destacando-el-talento-estudiantil-y-academico/" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=ucm.cl&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>UCM</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">II Jornada del Día de la Investigación 2025</div>
+                                <div class="news-preview-domain">ucm.cl</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+
+                        <a class="news-preview-card" href="https://www.ucm.cl/noticias/maule-en-el-debate-global-ucm-presenta-analisis-que-explica-como-se-definen-los-rankings-universitarios-en-el-mundo/" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=ucm.cl&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>UCM</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">III Congreso Internacional Investigación Interdisciplinaria e Ingeniería (CINVIE)</div>
+                                <div class="news-preview-domain">ucm.cl</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+
+                        <a class="news-preview-card" href="https://www.ucm.cl/noticias/una-universidad-destaque-nivel-mundial/" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=ucm.cl&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>UCM</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">VI Congreso Colombiano de Estadística</div>
+                                <div class="news-preview-domain">ucm.cl</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="year-group">
+                    <h3 class="news-section year-heading">2024</h3>
+                    <div class="news-cards-list">
+                        <a class="news-preview-card" href="https://repositorioinstitucional.ucm.cl/items/ad4e2022-da10-49b9-a0cc-b628c57e8893" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=repositorioinstitucional.ucm.cl&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>UCM</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">Tesis doctoral YBM 2024</div>
+                                <div class="news-preview-domain">repositorioinstitucional.ucm.cl</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+
+                        <a class="news-preview-card" href="https://www.dm2a.org/blank" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=dm2a.org&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>DM2</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">Escuela 2024 de Modelización Matemática del Maule (EM3)</div>
+                                <div class="news-preview-domain">dm2a.org</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+
+                        <a class="news-preview-card" href="https://sites.google.com/view/enemat-2024-talca/expositores" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=sites.google.com&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>GGL</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">Enemat II 2024</div>
+                                <div class="news-preview-domain">sites.google.com</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+
+                        <a class="news-preview-card" href="https://www.ucm.cl/noticias/investidos-doctores-ucm-gradua-nueva-generacion-investigadores/" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=ucm.cl&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>UCM</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">Nueva generación de investigadores UCM 2024</div>
+                                <div class="news-preview-domain">ucm.cl</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+
+                        <a class="news-preview-card" href="https://graduaciones.ucm.cl/viernes31-05-24_img.php" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=graduaciones.ucm.cl&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>UCM</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">Ceremonia de Graduación Doctorados UCM 2024</div>
+                                <div class="news-preview-domain">graduaciones.ucm.cl</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+
+                        <a class="news-preview-card" href="https://www.ucm.cl/noticias/estudiante-ucm-participo-workshop-matematica-aplicada-universidad-del-bio-bio/" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=ucm.cl&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>UCM</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">Workshop de Matemática Aplicada en la Universidad del Bío-Bío</div>
+                                <div class="news-preview-domain">ucm.cl</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2023 -->
+                <div class="year-group">
+                    <h3 class="news-section year-heading">2023</h3>
+                    <div class="news-cards-list">
+                        <a class="news-preview-card" href="https://web.facebook.com/share/p/17QKp26fja/" target="_blank">
+                            <div class="news-preview-thumb" style="background-color:#1877F2;">
+                                <svg width="22" height="22" viewBox="0 0 24 24"><text x="7" y="18" font-size="16" font-weight="bold" fill="white">f</text></svg>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">Seminario de Estudiantes del DM2A</div>
+                                <div class="news-preview-domain">web.facebook.com</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+
+                        <a class="news-preview-card" href="https://youtu.be/xyTMuMEkHlM?si=ITkUvTHWoWUEbqIg" target="_blank">
+                            <div class="news-preview-thumb" style="background-color:#FF0000;">
+                                <svg width="22" height="22" viewBox="0 0 24 24"><polygon points="9,7 18,12 9,17" fill="white"/></svg>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">Estabilidad exponencial de un modelo matemático de la biodegradación del PLA</div>
+                                <div class="news-preview-domain">youtu.be</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+
+                        <a class="news-preview-card" href="https://www.ucm.cl/noticias/estudiante-ucm-expuso-ix-congreso-internacional-jornadas-matematica-aplicada-realizado-colombia/" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=ucm.cl&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>UCM</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">IX Congreso Internacional Jornadas de Matemática Aplicada (Colombia)</div>
+                                <div class="news-preview-domain">ucm.cl</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2021 -->
+                <div class="year-group">
+                    <h3 class="news-section year-heading">2021</h3>
+                    <div class="news-cards-list">
+                        <a class="news-preview-card" href="https://dmat.ciencias.ubiobio.cl/coloquio-estudiantes-postgrados-19052021/" target="_blank">
+                            <div class="news-preview-thumb">
+                                <img src="https://www.google.com/s2/favicons?domain=dmat.ciencias.ubiobio.cl&sz=64" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                                <span>UBB</span>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">Resumen Coloquio de Estudiantes de Postgrado UBB</div>
+                                <div class="news-preview-domain">dmat.ciencias.ubiobio.cl</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+
+                        <a class="news-preview-card" href="https://youtu.be/-FwrIPN5_9s?si=tJ5HaNH6Ge5puabS" target="_blank">
+                            <div class="news-preview-thumb" style="background-color:#FF0000;">
+                                <svg width="22" height="22" viewBox="0 0 24 24"><polygon points="9,7 18,12 9,17" fill="white"/></svg>
+                            </div>
+                            <div class="news-preview-body">
+                                <div class="news-preview-title">Video Coloquio de Estudiantes de Postgrado UBB</div>
+                                <div class="news-preview-domain">youtu.be</div>
+                            </div>
+                            <div class="news-preview-arrow">↗</div>
+                        </a>
+                    </div>
+                </div>
+
             </div>
-        </section>
+        </section>         
 
         <!-- Sección de contacto -->
         <section id="contacto" class="contact-section">
