@@ -36,3 +36,12 @@ button:hover {
     height: 200px;
     object-fit: cover;
 }
+
+.academic-link.whatsapp {
+    background-color: #25D366;
+    color: white;
+}
+
+.academic-link.whatsapp:hover {
+    background-color: #1ebe5d;
+}
