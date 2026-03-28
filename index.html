@@ -605,14 +605,26 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
         <section id="publicaciones" class="publications-section">
             <div class="container">
                 <h2 data-text="publicaciones_cientificas">Publicaciones Científicas</h2>
-
+ 
+                <!-- ── BARRA DE FILTRO ── -->
+                <div class="pub-filter-bar">
+                    <span class="pub-filter-label">Filtrar por año:</span>
+                    <button class="pub-filter-btn active" data-year="all">Todos</button>
+                    <button class="pub-filter-btn" data-year="2025">2025</button>
+                    <button class="pub-filter-btn" data-year="2024">2024</button>
+                    <button class="pub-filter-btn" data-year="2023">2023</button>
+                    <button class="pub-filter-btn" data-year="2022">2022</button>
+                    <button class="pub-filter-btn" data-year="2020">2020</button>
+                    <span class="pub-count">Total: <span id="pub-total">8</span> publicaciones</span>
+                </div>
+ 
                 <div class="publications-container">
                     <div class="publications-list">
-
+ 
                         <!-- ── 2025 ── -->
-                        <div class="pub-year-group">
+                        <div class="pub-year-group" data-year="2025">
                             <h3 class="pub-year-heading">2025</h3>
-
+ 
                             <div class="publication-item">
                                 <div class="pub-number">1</div>
                                 <div class="pub-content">
@@ -623,11 +635,11 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                 </div>
                             </div>
                         </div>
-
+ 
                         <!-- ── 2024 ── -->
-                        <div class="pub-year-group">
+                        <div class="pub-year-group" data-year="2024">
                             <h3 class="pub-year-heading">2024</h3>
-
+ 
                             <div class="publication-item">
                                 <div class="pub-number">1</div>
                                 <div class="pub-content">
@@ -638,11 +650,11 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                 </div>
                             </div>
                         </div>
-
+ 
                         <!-- ── 2023 ── -->
-                        <div class="pub-year-group">
+                        <div class="pub-year-group" data-year="2023">
                             <h3 class="pub-year-heading">2023</h3>
-
+ 
                             <div class="publication-item">
                                 <div class="pub-number">1</div>
                                 <div class="pub-content">
@@ -652,7 +664,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                     <a href="https://doi.org/10.3934/dcdsb.2022231" target="_blank">DOI: 10.3934/dcdsb.2022231</a>
                                 </div>
                             </div>
-
+ 
                             <div class="publication-item">
                                 <div class="pub-number">2</div>
                                 <div class="pub-content">
@@ -662,7 +674,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                     <a href="https://doi.org/10.1088/1742-6596/2515/1/012004" target="_blank">DOI: 10.1088/1742-6596/2515/1/012004</a>
                                 </div>
                             </div>
-
+ 
                             <div class="publication-item">
                                 <div class="pub-number">3</div>
                                 <div class="pub-content">
@@ -672,7 +684,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                     <a href="https://doi.org/10.1088/1742-6596/2515/1/012003" target="_blank">DOI: 10.1088/1742-6596/2515/1/012003</a>
                                 </div>
                             </div>
-
+ 
                             <div class="publication-item">
                                 <div class="pub-number">4</div>
                                 <div class="pub-content">
@@ -683,11 +695,11 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                 </div>
                             </div>
                         </div>
-
+ 
                         <!-- ── 2022 ── -->
-                        <div class="pub-year-group">
+                        <div class="pub-year-group" data-year="2022">
                             <h3 class="pub-year-heading">2022</h3>
-
+ 
                             <div class="publication-item">
                                 <div class="pub-number">1</div>
                                 <div class="pub-content">
@@ -698,11 +710,11 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                 </div>
                             </div>
                         </div>
-
+ 
                         <!-- ── 2020 ── -->
-                        <div class="pub-year-group">
+                        <div class="pub-year-group" data-year="2020">
                             <h3 class="pub-year-heading">2020</h3>
-
+ 
                             <div class="publication-item">
                                 <div class="pub-number">1</div>
                                 <div class="pub-content">
@@ -713,9 +725,9 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                 </div>
                             </div>
                         </div>
-
+ 
                     </div><!-- /publications-list -->
-
+ 
                     <div class="collaborators-container">
                         <h3 data-text="colaboradores">Colaboradores:</h3>
                         <div class="collaborator-item">Andler, Rodrigo</div>
@@ -749,7 +761,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                     </div>
                 </div>
             </div>
-        </section>
+        </section>         
 
         <!-- ══════════════════ FOTOS ══════════════════ -->
         <section id="fotos" class="gallery-section">
@@ -1028,7 +1040,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
         var galleryFigures = Array.from(document.querySelectorAll('.gallery-grid figure'));
         var currentIndex = 0;
         var touchStartX = 0, touchEndX = 0, SWIPE_THRESHOLD = 50;
-
+ 
         function openLightbox(index) {
             var fig = galleryFigures[index];
             var img = fig.querySelector('img');
@@ -1042,7 +1054,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
         function isOpen() { return document.getElementById('lightbox').classList.contains('open'); }
         function showNext() { openLightbox((currentIndex + 1) % galleryFigures.length); }
         function showPrev() { openLightbox((currentIndex - 1 + galleryFigures.length) % galleryFigures.length); }
-
+ 
         galleryFigures.forEach(function(fig, i) {
             fig.addEventListener('click', function() { openLightbox(i); });
         });
@@ -1062,6 +1074,34 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
             if (Math.abs(diff) < SWIPE_THRESHOLD) return;
             if (diff > 0) showNext(); else showPrev();
         }, { passive: true });
+ 
+        // ── Filtro de publicaciones por año ──
+        document.querySelectorAll('.pub-filter-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var year = this.getAttribute('data-year');
+ 
+                // Actualizar botones activos
+                document.querySelectorAll('.pub-filter-btn').forEach(function(b) {
+                    b.classList.remove('active');
+                });
+                this.classList.add('active');
+ 
+                // Mostrar/ocultar grupos y contar publicaciones visibles
+                var visibleCount = 0;
+                document.querySelectorAll('.pub-year-group').forEach(function(group) {
+                    if (year === 'all' || group.getAttribute('data-year') === year) {
+                        group.classList.remove('hidden');
+                        visibleCount += group.querySelectorAll('.publication-item').length;
+                    } else {
+                        group.classList.add('hidden');
+                    }
+                });
+ 
+                // Actualizar contador
+                var totalEl = document.getElementById('pub-total');
+                if (totalEl) totalEl.textContent = visibleCount;
+            });
+        });        
 
         // ── Idioma ──
         const TEXTS = {
