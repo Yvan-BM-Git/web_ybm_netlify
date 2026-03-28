@@ -310,6 +310,65 @@
         }
         .collaborator-item:last-child { border-bottom: none; }
 
+        /* ── FILTRO POR AÑO ── */
+        .pub-filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+            padding: 1rem 1.2rem;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        .pub-filter-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-right: 0.4rem;
+            white-space: nowrap;
+        }
+        .pub-filter-btn {
+            background: none;
+            border: 2px solid var(--medium-gray);
+            color: var(--dark-gray);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .pub-filter-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        .pub-filter-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+        }
+        .pub-year-group {
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+        .pub-year-group.hidden {
+            display: none;
+        }
+        /* Contador de resultados */
+        .pub-count {
+            margin-left: auto;
+            font-size: 0.82rem;
+            color: var(--dark-gray);
+            white-space: nowrap;
+        }
+        .pub-count span {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
         /* ── CONTACTO ── */
         .contact-section { background-color: var(--white); }
         .contact-container { max-width: 600px; margin: 0 auto; text-align: center; }
@@ -605,7 +664,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
         <section id="publicaciones" class="publications-section">
             <div class="container">
                 <h2 data-text="publicaciones_cientificas">Publicaciones Científicas</h2>
- 
+
                 <!-- ── BARRA DE FILTRO ── -->
                 <div class="pub-filter-bar">
                     <span class="pub-filter-label">Filtrar por año:</span>
@@ -617,14 +676,14 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                     <button class="pub-filter-btn" data-year="2020">2020</button>
                     <span class="pub-count">Total: <span id="pub-total">8</span> publicaciones</span>
                 </div>
- 
+
                 <div class="publications-container">
                     <div class="publications-list">
- 
+
                         <!-- ── 2025 ── -->
                         <div class="pub-year-group" data-year="2025">
                             <h3 class="pub-year-heading">2025</h3>
- 
+
                             <div class="publication-item">
                                 <div class="pub-number">1</div>
                                 <div class="pub-content">
@@ -635,11 +694,11 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                 </div>
                             </div>
                         </div>
- 
+
                         <!-- ── 2024 ── -->
                         <div class="pub-year-group" data-year="2024">
                             <h3 class="pub-year-heading">2024</h3>
- 
+
                             <div class="publication-item">
                                 <div class="pub-number">1</div>
                                 <div class="pub-content">
@@ -650,11 +709,11 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                 </div>
                             </div>
                         </div>
- 
+
                         <!-- ── 2023 ── -->
                         <div class="pub-year-group" data-year="2023">
                             <h3 class="pub-year-heading">2023</h3>
- 
+
                             <div class="publication-item">
                                 <div class="pub-number">1</div>
                                 <div class="pub-content">
@@ -664,7 +723,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                     <a href="https://doi.org/10.3934/dcdsb.2022231" target="_blank">DOI: 10.3934/dcdsb.2022231</a>
                                 </div>
                             </div>
- 
+
                             <div class="publication-item">
                                 <div class="pub-number">2</div>
                                 <div class="pub-content">
@@ -674,7 +733,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                     <a href="https://doi.org/10.1088/1742-6596/2515/1/012004" target="_blank">DOI: 10.1088/1742-6596/2515/1/012004</a>
                                 </div>
                             </div>
- 
+
                             <div class="publication-item">
                                 <div class="pub-number">3</div>
                                 <div class="pub-content">
@@ -684,7 +743,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                     <a href="https://doi.org/10.1088/1742-6596/2515/1/012003" target="_blank">DOI: 10.1088/1742-6596/2515/1/012003</a>
                                 </div>
                             </div>
- 
+
                             <div class="publication-item">
                                 <div class="pub-number">4</div>
                                 <div class="pub-content">
@@ -695,11 +754,11 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                 </div>
                             </div>
                         </div>
- 
+
                         <!-- ── 2022 ── -->
                         <div class="pub-year-group" data-year="2022">
                             <h3 class="pub-year-heading">2022</h3>
- 
+
                             <div class="publication-item">
                                 <div class="pub-number">1</div>
                                 <div class="pub-content">
@@ -710,11 +769,11 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                 </div>
                             </div>
                         </div>
- 
+
                         <!-- ── 2020 ── -->
                         <div class="pub-year-group" data-year="2020">
                             <h3 class="pub-year-heading">2020</h3>
- 
+
                             <div class="publication-item">
                                 <div class="pub-number">1</div>
                                 <div class="pub-content">
@@ -725,9 +784,9 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                                 </div>
                             </div>
                         </div>
- 
+
                     </div><!-- /publications-list -->
- 
+
                     <div class="collaborators-container">
                         <h3 data-text="colaboradores">Colaboradores:</h3>
                         <div class="collaborator-item">Andler, Rodrigo</div>
@@ -761,7 +820,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                     </div>
                 </div>
             </div>
-        </section>         
+        </section>
 
         <!-- ══════════════════ FOTOS ══════════════════ -->
         <section id="fotos" class="gallery-section">
@@ -998,8 +1057,8 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                 <div class="contact-container">
                     <h3 data-text="correos_electronicos">📧 Correos electrónicos:</h3>
                     <div class="email-list">
-                        <div class="email-item"><a href="mailto:ybalderam@gmail.com">ybalderam@gmail.com</a></div>
-                        <div class="email-item"><a href="mailto:ybaldera@ucm.cl">ybaldera@ucm.cl</a></div>
+                        <div class="email-item"><a href="/cdn-cgi/l/email-protection#d3aab1b2bfb7b6a1b2be93b4beb2babffdb0bcbe"><span class="__cf_email__" data-cfemail="146d7675787071667579547379757d783a777b79">[email&#160;protected]</span></a></div>
+                        <div class="email-item"><a href="/cdn-cgi/l/email-protection#314853505d555443507144525c1f525d"><span class="__cf_email__" data-cfemail="146d76757870716675546177793a7778">[email&#160;protected]</span></a></div>
                     </div>
 
                     <h3 data-text="enlaces_academicos_contacto">🌐 Enlaces Académicos</h3>
@@ -1035,12 +1094,12 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ── Lightbox ──
         var galleryFigures = Array.from(document.querySelectorAll('.gallery-grid figure'));
         var currentIndex = 0;
         var touchStartX = 0, touchEndX = 0, SWIPE_THRESHOLD = 50;
- 
+
         function openLightbox(index) {
             var fig = galleryFigures[index];
             var img = fig.querySelector('img');
@@ -1054,7 +1113,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
         function isOpen() { return document.getElementById('lightbox').classList.contains('open'); }
         function showNext() { openLightbox((currentIndex + 1) % galleryFigures.length); }
         function showPrev() { openLightbox((currentIndex - 1 + galleryFigures.length) % galleryFigures.length); }
- 
+
         galleryFigures.forEach(function(fig, i) {
             fig.addEventListener('click', function() { openLightbox(i); });
         });
@@ -1074,18 +1133,18 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
             if (Math.abs(diff) < SWIPE_THRESHOLD) return;
             if (diff > 0) showNext(); else showPrev();
         }, { passive: true });
- 
+
         // ── Filtro de publicaciones por año ──
         document.querySelectorAll('.pub-filter-btn').forEach(function(btn) {
             btn.addEventListener('click', function() {
                 var year = this.getAttribute('data-year');
- 
+
                 // Actualizar botones activos
                 document.querySelectorAll('.pub-filter-btn').forEach(function(b) {
                     b.classList.remove('active');
                 });
                 this.classList.add('active');
- 
+
                 // Mostrar/ocultar grupos y contar publicaciones visibles
                 var visibleCount = 0;
                 document.querySelectorAll('.pub-year-group').forEach(function(group) {
@@ -1096,12 +1155,12 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                         group.classList.add('hidden');
                     }
                 });
- 
+
                 // Actualizar contador
                 var totalEl = document.getElementById('pub-total');
                 if (totalEl) totalEl.textContent = visibleCount;
             });
-        });        
+        });
 
         // ── Idioma ──
         const TEXTS = {
