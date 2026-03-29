@@ -829,7 +829,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
         </section>
 
         <!-- ══════════════════ FOTOS ══════════════════ -->
-        <section id="fotos" class="gallery-section">
+<section id="fotos" class="gallery-section">
             <div class="container">
                 <h2 data-text="fotos">Fotos</h2>
 
@@ -847,7 +847,6 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                     <figure><img src="/figures/2026/2026_IWESM_YBM_8.JPG" alt="Presentación en IWESM26"><figcaption>Trade Balance Model (TBM) in AMF (Johnson, 2009)</figcaption></figure>
                     <figure><img src="/figures/2026/2026_IWESM_YBM_9.JPG" alt="Presentación en IWESM26"><figcaption>Escenarios de TBM usando pyCOT</figcaption></figure>
                     <figure><img src="/figures/2026/2026_IWESM_YBM_10.HEIC" alt="Presentación en IWESM26"><figcaption>Foto de IWESM 2026</figcaption></figure>
-
                     <figure><img src="/figures/2026/2026_IWESM1.WEBP" alt="Foto de apertura IWESM 2026"><figcaption>Foto de apertura IWESM 2026</figcaption></figure>
                     <figure><img src="/figures/2026/2026_ihealth.heic" alt="Actividad académica en iHealth 2026"><figcaption>Actividad académica en iHealth 2026</figcaption></figure>
                     <figure><img src="/figures/2026/2026_ucm.JPG" alt="Foto institucional en la UCM"><figcaption>Foto institucional en la UCM</figcaption></figure>
@@ -898,6 +897,242 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                 </div>
             </div>
         </section>
+
+        <!-- LIGHTBOX -->
+        <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Visor de imagen">
+            <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">&#10005;</button>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Imagen anterior">&#10094;</button>
+            <div class="lightbox-content">
+                <img id="lightbox-img" src="" alt="">
+                <p id="lightbox-caption"></p>
+                <span id="lightbox-counter"></span>
+            </div>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Siguiente imagen">&#10095;</button>
+        </div>
+
+        <!-- ESTILOS DEL LIGHTBOX -->
+        <style>
+            /* ── Galería: cursor pointer en las fotos ── */
+            .gallery-grid figure {
+                cursor: pointer;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .gallery-grid figure:hover {
+                transform: scale(1.03);
+                box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+            }
+
+            /* ── Lightbox overlay ── */
+            .lightbox {
+                display: none;
+                position: fixed;
+                inset: 0;
+                z-index: 9999;
+                background: rgba(0, 0, 0, 0.92);
+                backdrop-filter: blur(6px);
+                align-items: center;
+                justify-content: center;
+                animation: lb-fadein 0.22s ease;
+            }
+            .lightbox.active {
+                display: flex;
+            }
+            @keyframes lb-fadein {
+                from { opacity: 0; }
+                to   { opacity: 1; }
+            }
+
+            /* ── Imagen y caption ── */
+            .lightbox-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                max-width: 88vw;
+                max-height: 90vh;
+                text-align: center;
+                gap: 12px;
+            }
+            #lightbox-img {
+                max-width: 100%;
+                max-height: 75vh;
+                object-fit: contain;
+                border-radius: 6px;
+                box-shadow: 0 12px 48px rgba(0,0,0,0.6);
+                animation: lb-zoom 0.2s ease;
+            }
+            @keyframes lb-zoom {
+                from { transform: scale(0.94); opacity: 0; }
+                to   { transform: scale(1);    opacity: 1; }
+            }
+            #lightbox-caption {
+                color: #e8e8e8;
+                font-size: 0.95rem;
+                margin: 0;
+                max-width: 600px;
+                line-height: 1.5;
+            }
+            #lightbox-counter {
+                color: #888;
+                font-size: 0.8rem;
+                letter-spacing: 0.05em;
+            }
+
+            /* ── Botón cerrar ── */
+            .lightbox-close {
+                position: absolute;
+                top: 18px;
+                right: 22px;
+                background: rgba(255,255,255,0.12);
+                border: none;
+                color: #fff;
+                font-size: 1.3rem;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                cursor: pointer;
+                line-height: 1;
+                transition: background 0.2s;
+                z-index: 10001;
+            }
+            .lightbox-close:hover {
+                background: rgba(255,255,255,0.28);
+            }
+
+            /* ── Botones de navegación ── */
+            .lightbox-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(255,255,255,0.12);
+                border: none;
+                color: #fff;
+                font-size: 1.6rem;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: background 0.2s, transform 0.15s;
+                z-index: 10001;
+                line-height: 1;
+            }
+            .lightbox-nav:hover {
+                background: rgba(255,255,255,0.28);
+                transform: translateY(-50%) scale(1.1);
+            }
+            .lightbox-prev { left: 18px; }
+            .lightbox-next { right: 18px; }
+
+            /* ── Responsive: en móvil los botones se achican ── */
+            @media (max-width: 600px) {
+                .lightbox-nav {
+                    width: 38px;
+                    height: 38px;
+                    font-size: 1.1rem;
+                }
+                .lightbox-prev { left: 6px; }
+                .lightbox-next { right: 6px; }
+                .lightbox-content { max-width: 94vw; }
+            }
+        </style>
+
+        <!-- SCRIPT DEL LIGHTBOX -->
+        <script>
+        (function () {
+            // Recolectar todas las figuras de la galería
+            const figures = Array.from(document.querySelectorAll('.gallery-grid figure'));
+            let currentIndex = 0;
+
+            const lightbox  = document.getElementById('lightbox');
+            const lbImg     = document.getElementById('lightbox-img');
+            const lbCaption = document.getElementById('lightbox-caption');
+            const lbCounter = document.getElementById('lightbox-counter');
+            const btnClose  = document.getElementById('lightbox-close');
+            const btnPrev   = document.getElementById('lightbox-prev');
+            const btnNext   = document.getElementById('lightbox-next');
+
+            // ── Abrir lightbox ──
+            function openLightbox(index) {
+                currentIndex = index;
+                showImage(currentIndex);
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                lightbox.focus();
+            }
+
+            // ── Cerrar lightbox ──
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // ── Mostrar imagen según índice ──
+            function showImage(index) {
+                const fig = figures[index];
+                const img = fig.querySelector('img');
+                const cap = fig.querySelector('figcaption');
+                lbImg.src = img.src;
+                lbImg.alt = img.alt;
+                lbCaption.textContent = cap ? cap.textContent : '';
+                lbCounter.textContent = (index + 1) + ' / ' + figures.length;
+                // Re-trigger animation
+                lbImg.style.animation = 'none';
+                lbImg.offsetHeight; // reflow
+                lbImg.style.animation = '';
+            }
+
+            // ── Navegar ──
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + figures.length) % figures.length;
+                showImage(currentIndex);
+            }
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % figures.length;
+                showImage(currentIndex);
+            }
+
+            // ── Click en cada figura ──
+            figures.forEach(function (fig, i) {
+                fig.addEventListener('click', function () { openLightbox(i); });
+            });
+
+            // ── Botones ──
+            btnClose.addEventListener('click', closeLightbox);
+            btnPrev.addEventListener('click', prevImage);
+            btnNext.addEventListener('click', nextImage);
+
+            // ── Click fuera de la imagen ──
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            // ── Teclado (flechas + Escape) ──
+            document.addEventListener('keydown', function (e) {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'ArrowLeft')  prevImage();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'Escape')     closeLightbox();
+            });
+
+            // ── Swipe táctil ──
+            let touchStartX = 0;
+            let touchStartY = 0;
+
+            lightbox.addEventListener('touchstart', function (e) {
+                touchStartX = e.changedTouches[0].clientX;
+                touchStartY = e.changedTouches[0].clientY;
+            }, { passive: true });
+
+            lightbox.addEventListener('touchend', function (e) {
+                const dx = e.changedTouches[0].clientX - touchStartX;
+                const dy = e.changedTouches[0].clientY - touchStartY;
+                // Solo considerar swipe horizontal si no fue principalmente vertical
+                if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+                    if (dx < 0) nextImage();
+                    else        prevImage();
+                }
+            }, { passive: true });
+        })();
+        </script>
 
         <!-- Lightbox -->
         <div class="lightbox-overlay" id="lightbox">
