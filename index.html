@@ -314,59 +314,61 @@
         /* ── FILTRO POR AÑO ── */
         .pub-filter-bar {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            gap: 10px;
-            flex-wrap: nowrap;
-            overflow: hidden;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+            padding: 1rem 1.2rem;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
         }
-
-        /* CONTENEDOR SCROLL */
-        .pub-filter-scroll {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding-bottom: 4px;
-
-            /* Oculta scrollbar (Chrome/Safari) */
-            scrollbar-width: none;       /* Firefox */
-        }
-        .pub-filter-scroll::-webkit-scrollbar {
-            display: none;               /* Chrome */
-        }
-
-        /* BOTONES */
-        .pub-filter-btn {
-            flex: 0 0 auto;   /* evita que se compriman */
-            padding: 6px 12px;
-            border-radius: 20px;
-            border: 1px solid #ccc;
-            background: #fff;
-            cursor: pointer;
-            font-size: 0.8rem;
-            white-space: nowrap;
-        }
-
-        .pub-filter-btn.active {
-            background: #0072ce;
-            color: #fff;
-            border-color: #0072ce;
-        }
-
-        /* LABEL Y COUNT */
         .pub-filter-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #555;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-right: 0.4rem;
             white-space: nowrap;
         }
-
+        .pub-filter-btn {
+            background: none;
+            border: 2px solid var(--medium-gray);
+            color: var(--dark-gray);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .pub-filter-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        .pub-filter-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+        }
+        .pub-year-group {
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+        .pub-year-group.hidden {
+            display: none;
+        }
+        /* Contador de resultados */
         .pub-count {
-            font-size: 0.8rem;
-            color: #777;
             margin-left: auto;
+            font-size: 0.82rem;
+            color: var(--dark-gray);
             white-space: nowrap;
-        }        
+        }
+        .pub-count span {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
 
         /* ── CONTACTO ── */
         .contact-section { background-color: var(--white); }
@@ -673,23 +675,18 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
 
                 <div class="publications-container">
 
+                    <!-- ── BARRA DE FILTRO ── -->
                     <div class="pub-filter-bar">
                         <span class="pub-filter-label">Filtrar por año:</span>
-
-                        <div class="pub-filter-scroll">
-                            <button class="pub-filter-btn active" data-year="all">Todos</button>
-                            <button class="pub-filter-btn" data-year="2026">2026</button>
-                            <button class="pub-filter-btn" data-year="2025">2025</button>
-                            <button class="pub-filter-btn" data-year="2024">2024</button>
-                            <button class="pub-filter-btn" data-year="2023">2023</button>
-                            <button class="pub-filter-btn" data-year="2022">2022</button>
-                            <button class="pub-filter-btn" data-year="2020">2020</button>
-                        </div>
-
-                        <span class="pub-count">
-                            Total: <span id="pub-total">9</span> publicaciones
-                        </span>
-                    </div>                 
+                        <button class="pub-filter-btn active" data-year="all">Todos</button>
+                        <button class="pub-filter-btn" data-year="2026">2026</button>
+                        <button class="pub-filter-btn" data-year="2025">2025</button>
+                        <button class="pub-filter-btn" data-year="2024">2024</button>
+                        <button class="pub-filter-btn" data-year="2023">2023</button>
+                        <button class="pub-filter-btn" data-year="2022">2022</button>
+                        <button class="pub-filter-btn" data-year="2020">2020</button>
+                        <span class="pub-count">Total: <span id="pub-total">9</span> publicaciones</span>
+                    </div>                    
 
                     <div class="publications-list">
 
