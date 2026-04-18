@@ -314,61 +314,59 @@
         /* ── FILTRO POR AÑO ── */
         .pub-filter-bar {
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
-            gap: 0.6rem;
-            margin-bottom: 2rem;
-            padding: 1rem 1.2rem;
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+            gap: 10px;
+            flex-wrap: nowrap;
+            overflow: hidden;
         }
-        .pub-filter-label {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--dark-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-right: 0.4rem;
-            white-space: nowrap;
+
+        /* CONTENEDOR SCROLL */
+        .pub-filter-scroll {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 4px;
+
+            /* Oculta scrollbar (Chrome/Safari) */
+            scrollbar-width: none;       /* Firefox */
         }
+        .pub-filter-scroll::-webkit-scrollbar {
+            display: none;               /* Chrome */
+        }
+
+        /* BOTONES */
         .pub-filter-btn {
-            background: none;
-            border: 2px solid var(--medium-gray);
-            color: var(--dark-gray);
-            padding: 5px 14px;
+            flex: 0 0 auto;   /* evita que se compriman */
+            padding: 6px 12px;
             border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            border: 1px solid #ccc;
+            background: #fff;
             cursor: pointer;
-            transition: var(--transition);
-        }
-        .pub-filter-btn:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-        .pub-filter-btn.active {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: var(--white);
-        }
-        .pub-year-group {
-            transition: opacity 0.25s ease, transform 0.25s ease;
-        }
-        .pub-year-group.hidden {
-            display: none;
-        }
-        /* Contador de resultados */
-        .pub-count {
-            margin-left: auto;
-            font-size: 0.82rem;
-            color: var(--dark-gray);
+            font-size: 0.8rem;
             white-space: nowrap;
         }
-        .pub-count span {
-            font-weight: 700;
-            color: var(--primary-color);
+
+        .pub-filter-btn.active {
+            background: #0072ce;
+            color: #fff;
+            border-color: #0072ce;
         }
+
+        /* LABEL Y COUNT */
+        .pub-filter-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #555;
+            white-space: nowrap;
+        }
+
+        .pub-count {
+            font-size: 0.8rem;
+            color: #777;
+            margin-left: auto;
+            white-space: nowrap;
+        }        
 
         /* ── CONTACTO ── */
         .contact-section { background-color: var(--white); }
