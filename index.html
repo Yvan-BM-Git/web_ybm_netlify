@@ -221,6 +221,43 @@
             font-weight: 500;
         }
 
+        .languages-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 0.5rem;
+        }
+
+        .language-badge {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 14px;
+            font-weight: 600;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            cursor: default;
+        }
+
+        .language-badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        /* Científico / modelamiento */
+        .lang-python { background: #3776AB; }
+        .lang-matlab { background: #e16737; }
+        .lang-mathematica { background: #dd1100; }
+
+        /* Estadística */
+        .lang-r { background: #276DC3; }
+        .lang-spss { background: #2ca02c; }
+
+        /* Web */
+        .lang-html { background: #e34c26; }
+
         /* ── EDUCACIÓN ── */
         .education-section { background-color: var(--white); }
         .education-item {
@@ -622,7 +659,22 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                     <span class="keyword-badge" data-keyword="5">Redes de reacción</span>
                     <span class="keyword-badge" data-keyword="6">Análisis de datos</span>
                     <span class="keyword-badge" data-keyword="7">Bioestadística</span>
+                    <span class="keyword-badge" data-keyword="8">Aprendizaje automático</span>
                 </div>
+
+                <h3 data-text="lenguajes_programacion">💻 Lenguajes de programación</h3>
+                <div class="languages-container">
+
+                    <span class="language-badge lang-python">Python</span>
+                    <span class="language-badge lang-matlab">MATLAB</span>
+                    <span class="language-badge lang-mathematica">Mathematica</span>
+
+                    <span class="language-badge lang-r">R</span>
+                    <span class="language-badge lang-spss">SPSS</span>
+
+                    <span class="language-badge lang-html">HTML/CSS</span>
+
+                </div>                
             </div>
         </section>
 
@@ -1134,8 +1186,10 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                         <div class="collaborator-item">Andler, Rodrigo</div>
                         <div class="collaborator-item">Rojas-Palma, Alejandro</div>
                         <div class="collaborator-item">Cuesta-Herrera, Ledyz</div>
-                        <div class="collaborator-item">Lozada-Yavina, Rafael</div>
                         <div class="collaborator-item">Gelvez-Almeida, Elkin</div>
+                        <div class="collaborator-item">Huérfano-Maldonado, Yoleidy</div>
+                        <div class="collaborator-item">Martínez-Jeraldo, Nicole</div>
+                        <div class="collaborator-item">Lozada-Yavina, Rafael</div>
                         <div class="collaborator-item">Guajardo-Flores, Camila</div>
                         <div class="collaborator-item">Rojas, Josefa</div>
                         <div class="collaborator-item">Hernández, Camila</div>
@@ -1147,11 +1201,9 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                         <div class="collaborator-item">Pastenes, Luis</div>
                         <div class="collaborator-item">Arencibia, Ariel D.</div>
                         <div class="collaborator-item">Mora Cofre, Marco</div>
-                        <div class="collaborator-item">Huérfano-Maldonado, Yoleidy</div>
-                        <div class="collaborator-item">Salazar-Jurado, Edwin</div>
-                        <div class="collaborator-item">Martínez-Jeraldo, Nicole</div>
-                        <div class="collaborator-item">Tobar, Luis</div>
                         <div class="collaborator-item">Vera, Miguel</div>
+                        <div class="collaborator-item">Salazar-Jurado, Edwin</div>
+                        <div class="collaborator-item">Tobar, Luis</div>
                         <div class="collaborator-item">Barrientos, Ricardo</div>
                         <div class="collaborator-item">Pino, Valentina</div>
                         <div class="collaborator-item">Farres, Amelia</div>
@@ -1782,6 +1834,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                 "perfil_academico": "Perfil Académico", "bio": "Biografía:",
                 "biografia": "Soy Doctor en Modelamiento Matemático Aplicado por la Universidad Católica del Maule y Magíster en Matemática Aplicada por la Universidad del Bío-Bío. Mi trabajo se enfoca en la formulación y análisis de modelos matemáticos aplicados a procesos biológicos complejos, con especial interés en la biodegradación de bioplásticos y el estudio de sistemas dinámicos en ecología.\n\nDurante mi formación doctoral, desarrollé modelos cinéticos para la degradación de polímeros, integrando herramientas computacionales orientadas a la optimización de procesos de compostaje. Asimismo, he participado en proyectos Fondecyt, tanto como tesista como en funciones de apoyo técnico, donde he fortalecido competencias en programación científica, análisis de datos y modelamiento de redes de reacción.\n\nMi sólida formación en matemáticas y estadística, junto con mi experiencia en docencia universitaria, respaldan mi capacidad para articular conocimientos en contextos interdisciplinarios e integrarme de manera efectiva en equipos de trabajo.",
                 "enlaces_academicos": "🌐 Enlaces Académicos", "areas_investigacion": "📚 Áreas de Investigación",
+                "lenguajes_programacion": "💻 Lenguajes de programación",
                 "formacion_academica": "Formación Académica", "mas_informacion": "Más información",
                 "publicaciones_cientificas": "Publicaciones Científicas", "colaboradores": "Colaboradores:",
                 "contacto": "Contacto", "correos_electronicos": "📧 Correos electrónicos:",
@@ -1798,6 +1851,7 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
                 "perfil_academico": "Academic Profile", "bio": "Biography:",
                 "biografia": "I hold a Ph.D. in Applied Mathematical Modeling from the Universidad Católica del Maule and an M.Sc. in Applied Mathematics from the Universidad del Bío-Bío. My work focuses on the formulation and analysis of mathematical models for complex biological processes, with particular emphasis on biodegradation of bioplastics and dynamical systems in ecology.\n\nDuring my doctoral training, I developed kinetic models for polymer degradation and integrated computational tools to optimize composting processes. In addition, I have participated in Fondecyt projects both as a thesis student and in technical support roles, where I have strengthened my skills in scientific programming, data analysis, and reaction network modeling.\n\nMy solid background in mathematics and statistics, together with my experience in higher education teaching, supports my ability to articulate knowledge in interdisciplinary contexts and to effectively integrate into collaborative research teams.",
                 "enlaces_academicos": "🌐 Academic Links", "areas_investigacion": "📚 Research Areas",
+                "lenguajes_programacion": "💻 Programming Languages",
                 "formacion_academica": "Academic Formation", "mas_informacion": "More information",
                 "publicaciones_cientificas": "Scientific Publications", "colaboradores": "Collaborators:",
                 "contacto": "Contact", "correos_electronicos": "📧 Email addresses:",
@@ -1823,7 +1877,8 @@ En conjunto, mi perfil combina rigor analítico, creatividad y experiencia aplic
             {"es": "Sistemas EDO no autónomos", "en": "Non-autonomous EDO systems"},
             {"es": "Redes de reacción", "en": "Reaction Networks"},
             {"es": "Análisis de datos", "en": "Data analysis"},
-            {"es": "Bioestadística", "en": "Biostatistics"}
+            {"es": "Bioestadística", "en": "Biostatistics"},
+            {"es": "Aprendizaje automático", "en": "Machine learning"}
         ];
 
         let currentLanguage = 'es';
